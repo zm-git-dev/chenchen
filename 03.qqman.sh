@@ -1,11 +1,8 @@
 # install.packages("qqman")
 library(qqman)
-# 加载并查看示例数据
-head(gwasResults)
-#################
+#add files
 dat_fs_1 <- read.csv('FS_E1/MVP.V17.GLM.csv',header = T)
 head(dat_fs_1)
-##########################
 ##########################
 data <- dat_fs_1 [,c(1,2,3,6)]
 #
@@ -26,7 +23,6 @@ head(cc)
 #
 dat.cc <- cc[,c(2,5,3,4)]
 head(dat.cc)
-##
 names(dat.cc)<-c("SNP","CHR","BP","P")
 ###########
 head(dat.cc)
@@ -40,11 +36,8 @@ manhattan(dat.cc, chr = "CHR", bp = "BP", p = "P", snp = "SNP",
 manhattan(dat.cc,chr = "CHR", bp = "BP", p = "P", snp = "SNP",
           col = c("blue4", "orange3"), 
           chrlabs = c("A01","A02","A03","A04","A05","A06","A07","A08","A09","A10","A11","A12","A13","D01","D02","D03","D04","D05","D06","D07","D08","D09","D10","D11","D12","D13"))
-
 #############
-
 manhattan(dat.cc,chr = "CHR", bp = "BP", p = "P", snp = "SNP",
           col = c("blue4", "orange3"), 
           suggestiveline = -log10(1e-05), genomewideline = -log10(5e-08),
           chrlabs = c("A01","A02","A03","A04","A05","A06","A07","A08","A09","A10","A11","A12","A13","D01","D02","D03","D04","D05","D06","D07","D08","D09","D10","D11","D12","D13"))
-
